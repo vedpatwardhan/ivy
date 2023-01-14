@@ -324,11 +324,15 @@
             <span class="ow">and</span> <span class="n">out</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
         <span class="p">)</span>
         <span class="k">if</span> <span class="n">with_out</span><span class="p">:</span>
-            <span class="n">out_cont_idxs</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">nested_argwhere</span><span class="p">(</span>
-                <span class="n">out</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_ivy_container</span><span class="p">,</span> <span class="n">to_ignore</span><span class="o">=</span><span class="n">ivy</span><span class="o">.</span><span class="n">Container</span>
-            <span class="p">)</span>
-            <span class="n">out_conts</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">multi_index_nest</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">out_cont_idxs</span><span class="p">)</span>
-            <span class="n">num_out_conts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">out_conts</span><span class="p">)</span>
+            <span class="n">out_conts</span> <span class="o">=</span> <span class="p">[</span><span class="n">out</span><span class="p">]</span>
+            <span class="n">num_out_conts</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">out_cont_idxs</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_array</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_ivy_container</span><span class="p">(</span><span class="n">out</span><span class="p">):</span>
+                <span class="n">out_cont_idxs</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">nested_argwhere</span><span class="p">(</span>
+                    <span class="n">out</span><span class="p">,</span> <span class="n">ivy</span><span class="o">.</span><span class="n">is_ivy_container</span><span class="p">,</span> <span class="n">to_ignore</span><span class="o">=</span><span class="n">ivy</span><span class="o">.</span><span class="n">Container</span>
+                <span class="p">)</span>
+                <span class="n">out_conts</span> <span class="o">=</span> <span class="n">ivy</span><span class="o">.</span><span class="n">multi_index_nest</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="n">out_cont_idxs</span><span class="p">)</span>
+                <span class="n">num_out_conts</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">out_conts</span><span class="p">)</span>
             <span class="n">conts</span> <span class="o">=</span> <span class="n">arg_conts</span> <span class="o">+</span> <span class="n">kwarg_conts</span> <span class="o">+</span> <span class="n">out_conts</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">conts</span> <span class="o">=</span> <span class="n">arg_conts</span> <span class="o">+</span> <span class="n">kwarg_conts</span>
