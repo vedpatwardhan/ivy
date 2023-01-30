@@ -13,5 +13,4 @@ Gradients
    :maxdepth: -1
    :caption: Gradients
 
-   gradients/bind_custom_gradient_function.rst
 
