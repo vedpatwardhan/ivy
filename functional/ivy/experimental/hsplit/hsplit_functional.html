@@ -97,6 +97,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bernoulli.html">bernoulli</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logit.html">logit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prelu.html">prelu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thresholded_relu.html">thresholded_relu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../msort.html">msort</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../triu_indices.html">triu_indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vorbis_window.html">vorbis_window</a></li>
@@ -211,6 +212,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../bernoulli.html">bernoulli</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../logit.html">logit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../prelu.html">prelu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../thresholded_relu.html">thresholded_relu</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../msort.html">msort</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../triu_indices.html">triu_indices</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../vorbis_window.html">vorbis_window</a></li>
@@ -384,7 +386,7 @@ the indices in the tuple.</p></li>
 <span class="go">         [8.,  9., 10., 11.],</span>
 <span class="go">         [12., 13., 14., 15.]]</span>
 <span class="go">        )</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ivy</span><span class="o">.</span><span class="n">vsplit</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ivy</span><span class="o">.</span><span class="n">hsplit</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="go">[ivy.array([[ 0.,  1.],</span>
 <span class="go">                [ 4.,  5.],</span>
 <span class="go">                [ 8.,  9.],</span>
