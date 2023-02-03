@@ -349,6 +349,7 @@
 <span class="sd">    for the function</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">supported_device_dtypes</span> <span class="o">=</span> <span class="p">{}</span>
+
     <span class="c1"># This is for getting a private function from numpy frontend where we have</span>
     <span class="c1"># a ufunc object as we can&#39;t refer to them as functions</span>
     <span class="k">if</span> <span class="n">fn_module</span> <span class="o">==</span> <span class="s2">&quot;ivy.functional.frontends.numpy&quot;</span><span class="p">:</span>
@@ -358,6 +359,7 @@
 
     <span class="n">backends</span> <span class="o">=</span> <span class="n">available_frameworks</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">backends</span><span class="p">:</span>  <span class="c1"># ToDo can optimize this ?</span>
+
         <span class="n">ivy</span><span class="o">.</span><span class="n">set_backend</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
         <span class="n">_tmp_mod</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">fn_module</span><span class="p">)</span>
         <span class="n">_fn</span> <span class="o">=</span> <span class="n">_tmp_mod</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">fn_name</span><span class="p">]</span>
